@@ -93,12 +93,12 @@ interface ZeptoStatic {
 	* @param collection
 	* @param fn
 	**/
-	each(collection: any[], fn: (index: number, item: any) => boolean): void;
+	each(collection: any[], fn: (index: number, item: any) => boolean|void): void;
 
 	/**
 	* @see ZeptoStatic.each
 	**/
-	each(collection: any, fn: (key: string, value: any) => boolean): void;
+	each(collection: any, fn: (key: string, value: any) => boolean|void): void;
 
 	/**
 	* Extend target object with properties from each of the source objects, overriding the properties on target.
@@ -629,7 +629,7 @@ interface ZeptoCollection {
 	* @param item
 	* @return Self object.
 	**/
-	each(fn: (index: number, item: any) => boolean): ZeptoCollection;
+	each(fn: (index: number, item: any) => boolean|void): ZeptoCollection;
 
 	/**
 	* Clear DOM contents of each element in the collection.
@@ -1347,12 +1347,12 @@ interface ZeptoCollection {
 	* @param fn
 	* @return
 	**/
-	on(type: string, selector: string, fn: (e: Event) => boolean): ZeptoCollection;
+	on(type: string, selector: string, fn: (e: Event) => boolean|void): ZeptoCollection;
 
 	/**
 	* @see ZeptoCollection.on
 	**/
-	on(type: string, fn: (e: Event) => boolean): ZeptoCollection;
+	on(type: string, fn: (e: Event) => boolean|void): ZeptoCollection;
 	// todo: v0.9 will introduce string literals
 	//on(type: 'ajaxStart', fn: ZeptoAjaxStartEvent): ZeptoCollection;
 	//on(type: 'ajaxBeforeSend', fn: ZeptoAjaxBeforeSendEvent): ZeptoCollection;
